@@ -1,14 +1,11 @@
 package com.example.github_searchapplication.view
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import android.widget.EditText
-import android.widget.Toast
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.github_searchapplication.R
@@ -33,28 +30,6 @@ class MainActivity : AppCompatActivity() {
         viewModel = ViewModelProviders.of(this)
             .get(GitHubViewModel::class.java)
 
-//        search_button.setOnClickListener {
-//            compositeDisposable.add(
-//                viewModel.getUsers(userName.text.toString())
-//                    .subscribe({ users ->
-//
-//                        displayUsers(users.items)
-//                        Toast.makeText(this, "Works!", Toast.LENGTH_LONG).show()
-//
-//
-//                    }, { throwable ->
-//                        Log.d("TAG_ERROR", throwable.message.toString())
-//                    })
-//
-//            )
-//        }
-
-//        val intent = Intent(this, User_Profile::class.java)
-//        username_recyclerview.setOnClickListener {
-//            intent.putExtra("username", )
-//            startActivity(intent)
-//        }
-
         username_edittext.addTextChangedListener(object : TextWatcher{
             override fun afterTextChanged(s: Editable?) {
 
@@ -72,14 +47,11 @@ class MainActivity : AppCompatActivity() {
                             if(userName.text.toString() == "")
                             {
                                 users.totalCount = 0
-                                displayUsers(users.items)
+                                displayUsers(users.items!!)
                             }
                             else {
-                                displayUsers(users.items)
+                                displayUsers(users.items!!)
                             }
-
-
-//                            Toast.makeText(this, "Works!", Toast.LENGTH_LONG).show()
 
 
                         }, { throwable ->

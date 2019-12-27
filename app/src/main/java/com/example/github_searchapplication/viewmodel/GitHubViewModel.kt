@@ -1,7 +1,6 @@
 package com.example.github_searchapplication.viewmodel
 
 import androidx.lifecycle.ViewModel
-import com.example.github_searchapplication.model.Item
 import com.example.github_searchapplication.model.Repository
 import com.example.github_searchapplication.model.SoleUser
 import com.example.github_searchapplication.model.Users
