@@ -25,13 +25,11 @@ class User_Profile : AppCompatActivity() {
         setContentView(R.layout.activity_user__profile)
 
         val intent = intent
-//        val user : TextView = findViewById(R.id.usernameinfo_textview)
 
         val username: String = intent.getStringExtra("username")
         val avatarUrl : String = intent.getStringExtra("avatar")
 
         findViewById<TextView>(R.id.usernameinfo_textview).text = username
-//        user.text = username
         Glide.with(this).load(avatarUrl).into(userprofile_imageview)
 
         viewModel = ViewModelProviders.of(this)
