@@ -43,13 +43,6 @@ class MainActivityTest {
         onView(withId(R.id.username_edittext)).perform(ViewActions.clearText())
             .perform(ViewActions.typeText("Shamarcus"), closeSoftKeyboard())
         onView(withId(R.id.username_recyclerview)).perform(click())
-//        onView(withId(R.id.username_recyclerview))
-//            .inRoot(
-//                RootMatchers.withDecorView(
-//                    Matchers.`is`(rule.getActivity().getWindow().getDecorView())
-//                )
-//            )
-//            .perform(RecyclerViewActions.scrollToPosition(19))
     }
 
     @After
