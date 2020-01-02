@@ -1,64 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<!--  You must setup the layout here to use databinding via the viewModel -->
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#000000"
     tools:context=".view.MainActivity">
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.example.github_searchapplication.viewmodel.GitHubViewModel" />
+    </data>
 
-    <TextView
-        android:id="@+id/title_textview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text = "GitHub Searcher"
-        android:textColor="#FFFFFF"
-        android:textSize="32sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="GitHub Searcher"
-        />
+    <!-- You are hard coding values in here.  These need to be removed to resource files -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_black">
 
-    <EditText
-        android:id="@+id/username_edittext"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginRight="32dp"
-        android:background="#FFFFFF"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/title_textview"
-        />
+        <TextView
+            android:id="@+id/title_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="@string/title"
+            android:textColor="@color/color_white"
+            android:textSize="@dimen/title_font_size"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/title" />
 
-<!--    <Button-->
-<!--        android:id="@+id/search_button"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="36dp"-->
-<!--        android:gravity="center"-->
-<!--        android:text= "Search"-->
-<!--        android:textSize="14sp"-->
-<!--        android:textStyle="bold|italic"-->
-<!--        app:layout_constraintStart_toEndOf="@id/username_edittext"-->
-<!--        app:layout_constraintTop_toTopOf="@id/username_edittext"-->
-<!--        app:layout_constraintBottom_toBottomOf="@id/username_edittext"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
+        <EditText
+            android:id="@+id/username_edittext"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="32dp"
+            android:background="#FFFFFF"
+            android:textSize="@dimen/edit_font_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title_textview"
+            android:onTextChanged="@{viewmodel::onUserNameTextChanged}"/>
+        <!-- ^^^ this will call the function in the viewmodel when user makes any text change -->
 
-<!--        />-->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/username_recyclerview"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/username_edittext" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/username_recyclerview"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="24dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/username_edittext"
-        app:layout_constraintBottom_toBottomOf="parent"
-        />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

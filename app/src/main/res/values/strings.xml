@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">GitHub_SearchApplication</string>
+    <string name="title">GitHub Searcher</string>
+    <string name="repository_search">Search for Repositories</string>
 </resources>

@@ -1,48 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_margin="8dp"
-    android:background="#002AFF">
+    >
 
-    <ImageView
-        android:id="@+id/user_imageview"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_margin="4dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        />
-
-
-    <TextView
-        android:id="@+id/username_textview"
-        android:layout_width="wrap_content"
+    <data>
+        <variable
+            name="user"
+            type="com.example.github_searchapplication.model.SoleUser"/>
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="#000000"
-        android:textStyle="bold|italic"
-        android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@id/user_imageview"
-        app:layout_constraintEnd_toStartOf="@id/repositoryamount_textview"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:text="ShamarcusW-MAC"
-        />
+        android:layout_margin="8dp"
+        android:background="@color/color_background">
 
-    <TextView
-        android:id="@+id/repositoryamount_textview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="16dp"
-        android:textStyle="bold"
-        android:textSize="16sp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:text="Repo: 46"
-        />
+        <ImageView
+            android:id="@+id/user_imageview"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_margin="4dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/username_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@={user.login}"
+            android:textColor="@color/color_black"
+            android:textStyle="bold|italic"
+            android:textSize="@dimen/info_font_size"
+            app:layout_constraintStart_toEndOf="@id/user_imageview"
+            app:layout_constraintEnd_toStartOf="@id/repositoryamount_textview"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:text="ShamarcusW-MAC"
+            />
+
+        <TextView
+            android:id="@+id/repositoryamount_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/margin16"
+            android:textStyle="bold"
+            android:textSize="@dimen/info_font_size"
+            android:textColor="@color/color_black"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="Repo: 46"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="title_font_size">32sp</dimen>
+    <dimen name="repo_info_font_size">20sp</dimen>
+    <dimen name="edit_font_size">18sp</dimen>
+    <dimen name="info_font_size">16sp</dimen>
+    <dimen name="margin8">8dp</dimen>
+    <dimen name="margin16">16dp</dimen>
+    <dimen name="margin20">20dp</dimen>
+    <dimen name="margin32">32dp</dimen>
+</resources>

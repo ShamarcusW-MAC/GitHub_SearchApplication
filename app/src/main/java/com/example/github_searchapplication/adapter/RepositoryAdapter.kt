@@ -10,7 +10,7 @@ import com.example.github_searchapplication.R
 import com.example.github_searchapplication.model.Repository
 import com.example.github_searchapplication.view.Repository_Website
 
-class RepositoryAdapter (val repoList: List<Repository>) : RecyclerView.Adapter<RepositoryAdapter.RepositoryViewHolder>() {
+class RepositoryAdapter (var repoList: List<Repository>) : RecyclerView.Adapter<RepositoryAdapter.RepositoryViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RepositoryViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.repo_item_layout, parent, false)
@@ -33,6 +33,11 @@ class RepositoryAdapter (val repoList: List<Repository>) : RecyclerView.Adapter<
             intent.putExtra("repositoryUrl", repoList[position].htmlUrl)
             it.context.startActivity(intent)
         }
+    }
+
+    fun updateRepositoryList(updatedList : List<Repository>) {
+        repoList = updatedList
+        notifyDataSetChanged()
     }
 
 

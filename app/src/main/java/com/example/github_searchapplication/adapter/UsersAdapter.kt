@@ -10,9 +10,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.github_searchapplication.R
 import com.example.github_searchapplication.model.Item
+import com.example.github_searchapplication.model.SoleUser
 import com.example.github_searchapplication.view.User_Profile
 
-class UsersAdapter (val usersList: List<Item>): RecyclerView.Adapter<UsersAdapter.UsersViewHolder>(){
+class UsersAdapter (var usersList: List<Item>): RecyclerView.Adapter<UsersAdapter.UsersViewHolder>(){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UsersViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.user_item_layout, parent, false)
@@ -29,6 +30,8 @@ class UsersAdapter (val usersList: List<Item>): RecyclerView.Adapter<UsersAdapte
 
         holder.userName.text = usersList[position].login.toString()
 
+//        holder.repoNumber.text = "Repo: " + usersList[position]
+
         Glide.with(holder.itemView.context)
             .load(usersList[position].avatarUrl)
             .into(holder.userAvatar)
@@ -42,11 +45,18 @@ class UsersAdapter (val usersList: List<Item>): RecyclerView.Adapter<UsersAdapte
 
     }
 
+    fun updateUserList(updatedList : List<Item>) {
+        usersList = updatedList
+        notifyDataSetChanged()
+    }
+
 
     inner class UsersViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
 
         val userAvatar: ImageView = itemView.findViewById(R.id.user_imageview)
 
         val userName: TextView = itemView.findViewById(R.id.username_textview)
+
+//        val repoNumber: TextView = itemView.findViewById(R.id.repositoryamount_textview)
     }
 }
