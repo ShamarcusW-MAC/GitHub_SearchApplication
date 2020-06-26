@@ -38,7 +38,7 @@ class GitHubFactory {
     fun getSoleUser(userName: String): Observable<SoleUser>{
         return gitHubService.getSoleUser(userName)
     }
-    fun getRepositories(userName: String): Observable<List<Repository>>{
+    fun getRepositories(userName: String): Observable<ArrayList<Repository>>{
         return gitHubService.getRepositories(userName)
     }
 }

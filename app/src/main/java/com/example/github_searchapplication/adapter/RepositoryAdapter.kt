@@ -10,7 +10,8 @@ import com.example.github_searchapplication.R
 import com.example.github_searchapplication.model.Repository
 import com.example.github_searchapplication.view.Repository_Website
 
-class RepositoryAdapter (var repoList: List<Repository>) : RecyclerView.Adapter<RepositoryAdapter.RepositoryViewHolder>() {
+class RepositoryAdapter (var repoList: ArrayList<Repository>) : RecyclerView.Adapter<RepositoryAdapter.RepositoryViewHolder>() {
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RepositoryViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.repo_item_layout, parent, false)
@@ -35,11 +36,20 @@ class RepositoryAdapter (var repoList: List<Repository>) : RecyclerView.Adapter<
         }
     }
 
-    fun updateRepositoryList(updatedList : List<Repository>) {
+    fun updateRepositoryList(updatedList : ArrayList<Repository>) {
         repoList = updatedList
         notifyDataSetChanged()
     }
 
+//    private fun filter(text: String) {
+//        var filteredList : ArrayList<Repository> = ArrayList()
+//
+//        for(item: Repository in repoList) {
+//            if(item.name.toString().toLowerCase().contains(text.toLowerCase())) {
+//                filteredList.add(item)
+//            }
+//        }
+//    }
 
     inner class RepositoryViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
 
@@ -47,4 +57,5 @@ class RepositoryAdapter (var repoList: List<Repository>) : RecyclerView.Adapter<
         val forksNumber: TextView = itemView.findViewById(R.id.forks_textview)
         val starsNumber : TextView = itemView.findViewById(R.id.stars_textview)
     }
+
 }

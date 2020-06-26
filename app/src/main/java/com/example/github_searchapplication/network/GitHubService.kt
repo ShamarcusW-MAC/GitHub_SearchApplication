@@ -17,7 +17,7 @@ interface GitHubService {
     fun getSoleUser(@Path("user_name")username: String) : Observable<SoleUser>
 
     @GET("users/{user_name}/repos")
-    fun getRepositories(@Path("user_name") username: String): Observable<List<Repository>>
+    fun getRepositories(@Path("user_name") username: String): Observable<ArrayList<Repository>>
 
 
 }

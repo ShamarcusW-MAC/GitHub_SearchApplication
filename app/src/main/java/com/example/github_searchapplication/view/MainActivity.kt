@@ -11,7 +11,6 @@ import com.example.github_searchapplication.R
 import com.example.github_searchapplication.adapter.UsersAdapter
 import com.example.github_searchapplication.databinding.ActivityMainBinding
 import com.example.github_searchapplication.model.Item
-import com.example.github_searchapplication.model.SoleUser
 import com.example.github_searchapplication.model.Users
 import com.example.github_searchapplication.viewmodel.GitHubViewModel
 import kotlinx.android.synthetic.main.activity_main.*

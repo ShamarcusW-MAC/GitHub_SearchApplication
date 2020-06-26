@@ -11,7 +11,7 @@ import com.bumptech.glide.Glide
 import com.example.github_searchapplication.R
 import com.example.github_searchapplication.model.Item
 import com.example.github_searchapplication.model.SoleUser
-import com.example.github_searchapplication.view.User_Profile
+import com.example.github_searchapplication.view.UserProfile
 
 class UsersAdapter (var usersList: List<Item>): RecyclerView.Adapter<UsersAdapter.UsersViewHolder>(){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UsersViewHolder {
@@ -36,7 +36,7 @@ class UsersAdapter (var usersList: List<Item>): RecyclerView.Adapter<UsersAdapte
             .load(usersList[position].avatarUrl)
             .into(holder.userAvatar)
         holder.itemView.setOnClickListener {
-            val intent = Intent(it.context, User_Profile::class.java)
+            val intent = Intent(it.context, UserProfile::class.java)
             intent.putExtra("username", usersList[position].login)
             intent.putExtra("avatar", usersList[position].avatarUrl)
             it.context.startActivity(intent)

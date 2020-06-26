@@ -20,7 +20,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/color_black"
+        android:background="@color/colorPrimaryDark"
         >
 
 <!--        //  findViewById<TextView>(R.id.useremailinfo_textview).text = user.email-->
@@ -49,9 +49,11 @@
             android:layout_width="145dp"
             android:layout_height="136dp"
             android:layout_marginTop="@dimen/margin32"
-            android:layout_marginLeft="24dp"
+            android:layout_marginStart="24dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/secondtitle_textview" />
+            app:layout_constraintTop_toBottomOf="@id/secondtitle_textview"
+            app:layout_constraintBottom_toTopOf="@id/userbio_textview"
+            />
 
 
         <TextView
@@ -61,43 +63,54 @@
             android:textColor="@color/color_white"
             android:textSize="@dimen/info_font_size"
             android:text="@={soleUser.login}"
+            android:background="@color/color_infobackground"
+            android:paddingStart="@dimen/margin8"
+            android:paddingEnd="@dimen/margin8"
             app:layout_constraintStart_toEndOf="@id/userprofile_imageview"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/userprofile_imageview"
             tools:text="ShamarcusW-MAC"
             />
 
-        <TextView
-            android:id="@+id/useremailinfo_textview"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/color_white"
-            android:textSize="@dimen/info_font_size"
-            android:text="@={soleUser.email}"
-            app:layout_constraintStart_toEndOf="@id/userprofile_imageview"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/usernameinfo_textview"
-            tools:text="shamarcusw50@gmail.com"
-            />
+<!--        <TextView-->
+<!--            android:id="@+id/useremailinfo_textview"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textColor="@color/color_white"-->
+<!--            android:textSize="@dimen/info_font_size"-->
+<!--            android:text="@={soleUser.email}"-->
+<!--            app:layout_constraintStart_toEndOf="@id/userprofile_imageview"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/usernameinfo_textview"-->
+<!--            tools:text="shamarcusw50@gmail.com"-->
+<!--            />-->
         <TextView
             android:id="@+id/userlocationinfo_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
             android:textColor="@color/color_white"
             android:textSize="@dimen/info_font_size"
             android:text="@={soleUser.location}"
+            android:background="@color/color_infobackground"
+            android:paddingStart="18dp"
+            android:paddingEnd="18dp"
             app:layout_constraintStart_toEndOf="@id/userprofile_imageview"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/useremailinfo_textview"
+            app:layout_constraintTop_toBottomOf="@id/usernameinfo_textview"
             tools:text="Atlanta, Georgia"
             />
         <TextView
             android:id="@+id/userjoininfo_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
             android:textColor="@color/color_white"
             android:textSize="@dimen/info_font_size"
             android:text="@={soleUser.createdAt}"
+            android:background="@color/color_infobackground"
+            android:paddingStart="9dp"
+            android:paddingEnd="9dp"
             app:layout_constraintStart_toEndOf="@id/userprofile_imageview"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/userlocationinfo_textview"
@@ -107,19 +120,30 @@
             android:id="@+id/userfollowersinfo_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
             android:textColor="@color/color_white"
+            android:text="@={`` + soleUser.followers}"
             android:textSize="@dimen/info_font_size"
+            android:background="@color/color_infobackground"
+            android:paddingStart="31dp"
+            android:paddingEnd="30dp"
             app:layout_constraintStart_toEndOf="@id/userprofile_imageview"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/userjoininfo_textview"
             tools:text="10 Followers"
             />
+
         <TextView
             android:id="@+id/userfollowinginfo_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
             android:textColor="@color/color_white"
             android:textSize="@dimen/info_font_size"
+            android:text="@={`` + soleUser.following}"
+            android:background="@color/color_infobackground"
+            android:paddingStart="35dp"
+            android:paddingEnd="34dp"
             app:layout_constraintStart_toEndOf="@id/userprofile_imageview"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/userfollowersinfo_textview"
@@ -135,9 +159,12 @@
             android:textSize="@dimen/info_font_size"
             android:text="@={soleUser.bio}"
             android:gravity="center"
+            android:background="@color/color_infobackground"
+            android:paddingStart="@dimen/margin8"
+            android:paddingEnd="@dimen/margin8"
             app:layout_constraintStart_toStartOf = "parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/userfollowinginfo_textview"
+            app:layout_constraintTop_toBottomOf="@id/userprofile_imageview"
             app:layout_constraintBottom_toTopOf="@id/repository_edittext"
             tools:text="An Android Developer with 5 years of experience looking for his next job!"
             />
@@ -153,7 +180,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/userbio_textview"
-            />
+            android:onTextChanged="@{viewmodel::onRepoNameTextChanged}"            />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/repository_recyclerview"
