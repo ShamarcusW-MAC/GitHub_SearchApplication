@@ -41,16 +41,6 @@ class RepositoryAdapter (var repoList: ArrayList<Repository>) : RecyclerView.Ada
         notifyDataSetChanged()
     }
 
-//    private fun filter(text: String) {
-//        var filteredList : ArrayList<Repository> = ArrayList()
-//
-//        for(item: Repository in repoList) {
-//            if(item.name.toString().toLowerCase().contains(text.toLowerCase())) {
-//                filteredList.add(item)
-//            }
-//        }
-//    }
-
     inner class RepositoryViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
 
         val repoName : TextView = itemView.findViewById(R.id.repository_name_textview)

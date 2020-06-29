@@ -18,6 +18,4 @@ interface GitHubService {
 
     @GET("users/{user_name}/repos")
     fun getRepositories(@Path("user_name") username: String): Observable<ArrayList<Repository>>
-
-
 }

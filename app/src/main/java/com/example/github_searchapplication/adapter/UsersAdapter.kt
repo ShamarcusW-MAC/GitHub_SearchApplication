@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.github_searchapplication.R
 import com.example.github_searchapplication.model.Item
-import com.example.github_searchapplication.model.SoleUser
 import com.example.github_searchapplication.view.UserProfile
 
 class UsersAdapter (var usersList: List<Item>): RecyclerView.Adapter<UsersAdapter.UsersViewHolder>(){
@@ -30,7 +29,6 @@ class UsersAdapter (var usersList: List<Item>): RecyclerView.Adapter<UsersAdapte
 
         holder.userName.text = usersList[position].login.toString()
 
-//        holder.repoNumber.text = "Repo: " + usersList[position]
 
         Glide.with(holder.itemView.context)
             .load(usersList[position].avatarUrl)
@@ -57,6 +55,5 @@ class UsersAdapter (var usersList: List<Item>): RecyclerView.Adapter<UsersAdapte
 
         val userName: TextView = itemView.findViewById(R.id.username_textview)
 
-//        val repoNumber: TextView = itemView.findViewById(R.id.repositoryamount_textview)
     }
 }

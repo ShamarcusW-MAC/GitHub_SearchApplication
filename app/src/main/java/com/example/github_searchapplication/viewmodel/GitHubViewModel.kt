@@ -20,7 +20,6 @@ class GitHubViewModel(application: Application) : AndroidViewModel(application){
     val soleUserInfo = MutableLiveData<SoleUser>()
     val repositoryInfo = MutableLiveData<ArrayList<Repository>>()
 
-
     //TextWatcher Code in MVVM
     fun onUserNameTextChanged(currentInput: CharSequence,start: Int,before : Int,
                               count :Int){
@@ -62,31 +61,6 @@ class GitHubViewModel(application: Application) : AndroidViewModel(application){
         )
     }
 
-//    //This method will handle the rest call
-//    fun findSoleUser(userName : String){
-//        compositeDisposable.add(
-//            getSoleUser(userName)
-//                .subscribe({ user ->
-//                    if(userName.isBlank())
-//                    {
-//                        soleUserInfo.postValue(user)
-//                        //When this post, we will observe for the change in the view
-//                        //displayUsers(users.items!!)
-//                    }
-//                    else {
-//                        soleUserInfo.postValue(user)
-//                        //displayUsers(users.items!!)
-//                    }
-//
-//
-//                }, { throwable ->
-//                    Log.e("TAG_ERROR", throwable.message.toString())
-//                })
-//
-//        )
-//    }
-
-
     //This method will handle the rest call
     fun findRepositories(userName : String){
         compositeDisposable.add(
@@ -103,9 +77,6 @@ class GitHubViewModel(application: Application) : AndroidViewModel(application){
     }
 
 
-
-
-    //None of this have observers assigned??
 
     fun getUsers(userName: String): Observable<Users>{
         return gitHubFactory.getUsers(userName)
