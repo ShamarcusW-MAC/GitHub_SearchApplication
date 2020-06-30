@@ -28,6 +28,7 @@ class UserProfile : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        supportActionBar?.hide()
         binding = DataBindingUtil.setContentView(this, R.layout.activity_user_profile)
         viewModel = ViewModelProviders.of(this).get(GitHubViewModel::class.java)
         //assign the viewmodel to the views binding
