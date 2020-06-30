@@ -17,25 +17,14 @@ class GitHubViewModel(application: Application) : AndroidViewModel(application){
     private val gitHubFactory: GitHubFactory = GitHubFactory()
     private val compositeDisposable = CompositeDisposable()
     val usersInfo = MutableLiveData<Users>()
-    val soleUserInfo = MutableLiveData<SoleUser>()
     val repositoryInfo = MutableLiveData<ArrayList<Repository>>()
 
-    //TextWatcher Code in MVVM
+    //Displays users based on the user input in the edit text
     fun onUserNameTextChanged(currentInput: CharSequence,start: Int,before : Int,
                               count :Int){
         val currentUserNameEntered = currentInput.toString()
         findUsers(currentUserNameEntered)
     }
-
-    //TextWatcher Code in MVVM
-    fun onRepoNameTextChanged(currentInput: CharSequence,start: Int,before : Int,
-                              count :Int){
-        val currentRepoNameEntered = currentInput.toString()
-//        val userName = "ShamarcusW-MAC"
-        findRepositories(currentRepoNameEntered)
-    }
-
-
 
     //This method will handle the rest call
     fun findUsers(userName : String){
@@ -45,15 +34,10 @@ class GitHubViewModel(application: Application) : AndroidViewModel(application){
                     if(userName.isBlank())
                     {
                         usersInfo.postValue(users)
-                        //When this post, we will observe for the change in the view
-                        //displayUsers(users.items!!)
                     }
                     else {
                         usersInfo.postValue(users)
-                        //displayUsers(users.items!!)
                     }
-
-
                 }, { throwable ->
                     Log.e("TAG_ERROR", throwable.message.toString())
                 })

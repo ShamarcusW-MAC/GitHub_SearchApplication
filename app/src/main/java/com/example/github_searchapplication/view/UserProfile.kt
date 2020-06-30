@@ -18,11 +18,6 @@ import com.example.github_searchapplication.viewmodel.GitHubViewModel
 import com.example.github_searchapplication.databinding.ActivityUserProfileBinding
 import kotlinx.android.synthetic.main.activity_user_profile.*
 
-
-
-
-
-
 class UserProfile : AppCompatActivity() {
 
     private lateinit var viewModel: GitHubViewModel
@@ -41,10 +36,11 @@ class UserProfile : AppCompatActivity() {
 
         val intent = intent
 
+        //Data is received from the users adapter
         val username: String = intent.getStringExtra("username")
         val avatar : String = intent.getStringExtra("avatar")
 
-
+        //Image of user's avatar will be loaded within the view
         Glide.with(this)
             .load(avatar)
             .into(userprofile_imageview)
@@ -58,10 +54,12 @@ class UserProfile : AppCompatActivity() {
             findViewById<TextView>(R.id.userbio_textview).text = user.bio
         }
         viewModel.findRepositories(username)
-        viewModel.repositoryInfo.observe(this, Observer<ArrayList<Repository>> { repositories ->
-            displayRepositories(repositories)
-            adapter = RepositoryAdapter(repositories)
 
+        //Repositories of the current user are displayed and updated based on what the user
+        //input in the edit text
+        viewModel.repositoryInfo.observe(this, Observer<ArrayList<Repository>> { repositories ->
+
+            displayRepositories(repositories)
             repository_edittext.addTextChangedListener(object : TextWatcher {
                 override fun afterTextChanged(s: Editable?) {
 
@@ -72,19 +70,12 @@ class UserProfile : AppCompatActivity() {
                             filteredList.add(item)
                         }
                     }
-
                     adapter.updateRepositoryList(filteredList)
-                    adapter.notifyDataSetChanged()
-
+                    displayRepositories(filteredList)
                 }
-
                 override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-
                 }
-
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-
-
                 }
             })
 
@@ -92,8 +83,8 @@ class UserProfile : AppCompatActivity() {
 
     }
 
-
-
+    //Check if the adapter is initialized, if not, the RV is set up.
+    // If so, a new list is sent.
     private fun displayRepositories(repositories: ArrayList<Repository>){
         if(::adapter.isInitialized) {
             adapter.updateRepositoryList(repositories)

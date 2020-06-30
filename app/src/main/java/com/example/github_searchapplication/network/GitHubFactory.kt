@@ -17,7 +17,6 @@ class GitHubFactory {
         gitHubService = createService(retrofitInstance())
     }
 
-
     private fun retrofitInstance(): Retrofit{
         return Retrofit.Builder().baseUrl(URL_BASE)
             .addConverterFactory(GsonConverterFactory.create())
@@ -25,19 +24,18 @@ class GitHubFactory {
             .build()
     }
 
-
     private fun createService(retrofit: Retrofit): GitHubService{
         return retrofit.create(GitHubService::class.java)
     }
 
     fun getUsers(userName: String): Observable<Users>{
         return gitHubService.getUsers(userName)
-
     }
 
     fun getSoleUser(userName: String): Observable<SoleUser>{
         return gitHubService.getSoleUser(userName)
     }
+
     fun getRepositories(userName: String): Observable<ArrayList<Repository>>{
         return gitHubService.getRepositories(userName)
     }

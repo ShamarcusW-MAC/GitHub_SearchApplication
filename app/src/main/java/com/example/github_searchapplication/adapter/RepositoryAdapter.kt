@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.github_searchapplication.R
 import com.example.github_searchapplication.model.Repository
-import com.example.github_searchapplication.view.Repository_Website
+import com.example.github_searchapplication.view.RepositoryWebsite
 
 class RepositoryAdapter (var repoList: ArrayList<Repository>) : RecyclerView.Adapter<RepositoryAdapter.RepositoryViewHolder>() {
 
@@ -19,6 +19,7 @@ class RepositoryAdapter (var repoList: ArrayList<Repository>) : RecyclerView.Ada
         return RepositoryViewHolder(view)
     }
 
+    //Returns the size of the array list
     override fun getItemCount(): Int {
         return repoList.size
     }
@@ -30,17 +31,19 @@ class RepositoryAdapter (var repoList: ArrayList<Repository>) : RecyclerView.Ada
         holder.starsNumber.text = repoList[position].stargazersCount.toString() + " Stars"
 
         holder.itemView.setOnClickListener {
-            val intent = Intent(it.context, Repository_Website::class.java)
+            val intent = Intent(it.context, RepositoryWebsite::class.java)
             intent.putExtra("repositoryUrl", repoList[position].htmlUrl)
             it.context.startActivity(intent)
         }
     }
 
+    //Updates list with new information
     fun updateRepositoryList(updatedList : ArrayList<Repository>) {
         repoList = updatedList
         notifyDataSetChanged()
     }
 
+    //Views initialized within the layout
     inner class RepositoryViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
 
         val repoName : TextView = itemView.findViewById(R.id.repository_name_textview)

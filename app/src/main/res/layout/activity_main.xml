@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<!--  You must setup the layout here to use databinding via the viewModel -->
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -12,7 +10,6 @@
             type="com.example.github_searchapplication.viewmodel.GitHubViewModel" />
     </data>
 
-    <!-- You are hard coding values in here.  These need to be removed to resource files -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -22,10 +19,11 @@
             android:id="@+id/title_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="@dimen/margin40"
             android:text="@string/title"
-            android:textColor="@color/color_white"
+            android:textColor="@color/color_infobackground"
             android:textSize="@dimen/title_font_size"
+            android:fontFamily="@font/notable_regular"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -33,24 +31,25 @@
 
         <EditText
             android:id="@+id/username_edittext"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/margin0"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="32dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginRight="32dp"
-            android:background="#FFFFFF"
+            android:layout_marginLeft="@dimen/margin32"
+            android:layout_marginTop="@dimen/margin8"
+            android:layout_marginRight="@dimen/margin32"
+            android:background="@drawable/user_search_edit"
             android:textSize="@dimen/edit_font_size"
+            android:drawableStart="@drawable/ic_search_gray_24dp"
+            android:maxLines="1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/title_textview"
             android:onTextChanged="@{viewmodel::onUserNameTextChanged}"/>
-        <!-- ^^^ this will call the function in the viewmodel when user makes any text change -->
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/username_recyclerview"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="24dp"
+            android:layout_width="@dimen/margin0"
+            android:layout_height="@dimen/margin0"
+            android:layout_marginTop="@dimen/margin24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

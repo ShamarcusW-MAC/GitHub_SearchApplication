@@ -19,17 +19,14 @@ class UsersAdapter (var usersList: List<Item>): RecyclerView.Adapter<UsersAdapte
         return UsersViewHolder(view)
     }
 
+    //Returns the size of the list
     override fun getItemCount(): Int {
-
         return usersList.size
-
     }
 
     override fun onBindViewHolder(holder: UsersViewHolder, position: Int) {
 
         holder.userName.text = usersList[position].login.toString()
-
-
         Glide.with(holder.itemView.context)
             .load(usersList[position].avatarUrl)
             .into(holder.userAvatar)
@@ -39,21 +36,17 @@ class UsersAdapter (var usersList: List<Item>): RecyclerView.Adapter<UsersAdapte
             intent.putExtra("avatar", usersList[position].avatarUrl)
             it.context.startActivity(intent)
         }
-
-
     }
 
+    //Updates list with any new information
     fun updateUserList(updatedList : List<Item>) {
         usersList = updatedList
         notifyDataSetChanged()
     }
 
-
+    //Views initialized within the layout
     inner class UsersViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
-
         val userAvatar: ImageView = itemView.findViewById(R.id.user_imageview)
-
         val userName: TextView = itemView.findViewById(R.id.username_textview)
-
     }
 }

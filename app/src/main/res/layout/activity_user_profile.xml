@@ -20,24 +20,17 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorPrimaryDark"
+        android:background="@color/color_infobackground"
         >
-
-<!--        //  findViewById<TextView>(R.id.useremailinfo_textview).text = user.email-->
-<!--        //  findViewById<TextView>(R.id.userlocationinfo_textview).text = user.location-->
-<!--        //  findViewById<TextView>(R.id.userjoininfo_textview).text = "Joined " + user.createdAt-->
-<!--        //  findViewById<TextView>(R.id.userfollowersinfo_textview).text = user.followers.toString() + " Followers"-->
-<!--        //  findViewById<TextView>(R.id.userfollowinginfo_textview).text = "Following " + user.following.toString()-->
-<!--        //  findViewById<TextView>(R.id.userbio_textview).text = user.bio-->
-<!--        -->
         <TextView
             android:id="@+id/secondtitle_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="@dimen/margin40"
             android:text = "@string/title"
             android:textColor="@color/color_white"
             android:textSize="@dimen/title_font_size"
+            android:fontFamily="@font/notable_regular"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -49,7 +42,7 @@
             android:layout_width="145dp"
             android:layout_height="136dp"
             android:layout_marginTop="@dimen/margin32"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="@dimen/margin24"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/secondtitle_textview"
             app:layout_constraintBottom_toTopOf="@id/userbio_textview"
@@ -60,41 +53,25 @@
             android:id="@+id/usernameinfo_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/color_white"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="@dimen/info_font_size"
+            android:textStyle="bold|italic"
             android:text="@={soleUser.login}"
-            android:background="@color/color_infobackground"
-            android:paddingStart="@dimen/margin8"
-            android:paddingEnd="@dimen/margin8"
             app:layout_constraintStart_toEndOf="@id/userprofile_imageview"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/userprofile_imageview"
             tools:text="ShamarcusW-MAC"
             />
 
-<!--        <TextView-->
-<!--            android:id="@+id/useremailinfo_textview"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:textColor="@color/color_white"-->
-<!--            android:textSize="@dimen/info_font_size"-->
-<!--            android:text="@={soleUser.email}"-->
-<!--            app:layout_constraintStart_toEndOf="@id/userprofile_imageview"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@id/usernameinfo_textview"-->
-<!--            tools:text="shamarcusw50@gmail.com"-->
-<!--            />-->
         <TextView
             android:id="@+id/userlocationinfo_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:textColor="@color/color_white"
+            android:layout_marginTop="@dimen/margin4"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="@dimen/info_font_size"
+            android:textStyle="bold|italic"
             android:text="@={soleUser.location}"
-            android:background="@color/color_infobackground"
-            android:paddingStart="18dp"
-            android:paddingEnd="18dp"
             app:layout_constraintStart_toEndOf="@id/userprofile_imageview"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/usernameinfo_textview"
@@ -104,13 +81,11 @@
             android:id="@+id/userjoininfo_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:textColor="@color/color_white"
+            android:layout_marginTop="@dimen/margin4"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="@dimen/info_font_size"
+            android:textStyle="bold|italic"
             android:text="@={soleUser.createdAt}"
-            android:background="@color/color_infobackground"
-            android:paddingStart="9dp"
-            android:paddingEnd="9dp"
             app:layout_constraintStart_toEndOf="@id/userprofile_imageview"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/userlocationinfo_textview"
@@ -120,13 +95,11 @@
             android:id="@+id/userfollowersinfo_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:textColor="@color/color_white"
-            android:text="@={`` + soleUser.followers}"
+            android:layout_marginTop="@dimen/margin4"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="@dimen/info_font_size"
-            android:background="@color/color_infobackground"
-            android:paddingStart="31dp"
-            android:paddingEnd="30dp"
+            android:textStyle="bold|italic"
+            android:text="@={`` + soleUser.followers}"
             app:layout_constraintStart_toEndOf="@id/userprofile_imageview"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/userjoininfo_textview"
@@ -137,13 +110,11 @@
             android:id="@+id/userfollowinginfo_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:textColor="@color/color_white"
+            android:layout_marginTop="@dimen/margin4"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="@dimen/info_font_size"
+            android:textStyle="bold|italic"
             android:text="@={`` + soleUser.following}"
-            android:background="@color/color_infobackground"
-            android:paddingStart="35dp"
-            android:paddingEnd="34dp"
             app:layout_constraintStart_toEndOf="@id/userprofile_imageview"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/userfollowersinfo_textview"
@@ -152,16 +123,16 @@
 
         <TextView
             android:id="@+id/userbio_textview"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/margin0"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margin16"
+            android:layout_marginTop="@dimen/margin16"
+            android:layout_marginBottom="@dimen/margin16"
+            android:textStyle="italic"
             android:textColor="@color/color_white"
             android:textSize="@dimen/info_font_size"
             android:text="@={soleUser.bio}"
             android:gravity="center"
-            android:background="@color/color_infobackground"
-            android:paddingStart="@dimen/margin8"
-            android:paddingEnd="@dimen/margin8"
+            android:background="@color/colorPrimaryDark"
             app:layout_constraintStart_toStartOf = "parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/userprofile_imageview"
@@ -171,21 +142,21 @@
 
         <EditText
             android:id="@+id/repository_edittext"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/margin0"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin16"
-            android:background="@color/color_white"
+            android:drawableStart="@drawable/ic_search_gray_24dp"
+            android:background="@drawable/user_search_edit"
             android:hint="@string/repository_search"
-            android:gravity="center"
+            android:maxLines="1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/userbio_textview"
-            android:onTextChanged="@{viewmodel::onRepoNameTextChanged}"            />
+            app:layout_constraintTop_toBottomOf="@id/userbio_textview"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/repository_recyclerview"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="@dimen/margin0"
+            android:layout_height="@dimen/margin0"
             android:layout_marginTop="@dimen/margin20"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
