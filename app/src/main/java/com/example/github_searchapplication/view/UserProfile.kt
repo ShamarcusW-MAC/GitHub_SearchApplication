@@ -62,16 +62,13 @@ class UserProfile : AppCompatActivity() {
             displayRepositories(repositories)
             repository_edittext.addTextChangedListener(object : TextWatcher {
                 override fun afterTextChanged(s: Editable?) {
-
                     val filteredList : ArrayList<Repository> = ArrayList()
-
                     for(item: Repository in repositories) {
                         if(item.name.toString().toLowerCase().startsWith(s.toString().toLowerCase())) {
                             filteredList.add(item)
                         }
                     }
                     adapter.updateRepositoryList(filteredList)
-                    displayRepositories(filteredList)
                 }
                 override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
                 }

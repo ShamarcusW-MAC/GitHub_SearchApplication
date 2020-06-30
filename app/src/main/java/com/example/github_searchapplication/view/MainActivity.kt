@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        supportActionBar?.hide()
         binding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
         viewModel = ViewModelProviders.of(this).get(GitHubViewModel::class.java)
         //assign the viewmodel to the views binding
